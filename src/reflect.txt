@@ -1,0 +1,27 @@
+	Class clazz =Person.class;
+    	Method[] m2=clazz.getDeclaredMethods();
+    	for(Method m:m2){
+    		//1.注释
+    		Annotation[] ann=m.getAnnotations();
+    		for(Annotation a: ann){
+    			System.out.print(a+" ");
+
+    		}
+
+    		//2.权限修饰符
+    		String str=Modifier.toString(m.getModifiers());
+    		System.out.print(str+" ");
+    		//3.返回值类型
+    		Class returnType=m.getReturnType();
+    		System.out.print(returnType.getName()+" ");
+    		//4.方法名
+    		System.out.print(m.getName());
+    		//5.形参列表
+    		System.out.print("(");
+    		Class[] params=m.getParameterTypes();
+    		for(int i=0;i<params.length;i++){
+    			System.out.print(params[i].getName()+i+" ");
+    		}
+    		System.out.print(")");
+    		System.out.println();
+    	}
